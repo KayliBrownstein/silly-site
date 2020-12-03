@@ -49,7 +49,6 @@ const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
                   {dogBreedData.height.metric}
                 </dd>
               </Card.Text>
-              <Button variant="primary">Next Dog Breed</Button>
             </Card.Body>
           )}
         </Col>
