@@ -12,16 +12,27 @@ import getDogBreedData from "../utils/getDogBreedData"
 const Home = () => {
   let [dogBreed, setDogBreed] = useState("Affenpinscher")
   let [dogBreedData, setDogBreedData] = useState(null)
+  let [dogBreedImage, setDogBreedImage] = useState({})
+
+  const getRandomDogBreedId = () => {
+    return Math.floor(Math.random() * 264 + 1)
+  }
 
   useEffect(() => {
     console.log("useEffect called")
-    getDogBreedData().then(response => {
-      console.log(`hiiii ${response}`)
-      setDogBreedData(response)
+
+    getDogBreedData(getRandomDogBreedId()).then(response => {
+      // console.log(getRandomDogBreedId())
+      // console.log(response[0])
+      setDogBreedImage({
+        url: response[0].url,
+        height: response[0].height,
+        width: response[0].width,
+      })
+      // console.log(dogBreedImage)
+      setDogBreedData(response[0].breeds[0])
     })
   }, [dogBreed])
-
-  console.log(`line 23 ${dogBreedData}`)
 
   return (
     <>
@@ -29,7 +40,10 @@ const Home = () => {
       <Container>
         <Row>
           <Col>
-            <ProfileCard dogBreedData={dogBreedData} />
+            <ProfileCard
+              dogBreedData={dogBreedData}
+              dogBreedImage={dogBreedImage}
+            />
           </Col>
         </Row>
       </Container>
@@ -38,13 +52,3 @@ const Home = () => {
 }
 
 export default Home
-
-// useEffect(() => {
-//   let mounted = true
-//   getList().then(items => {
-//     if (mounted) {
-//       setList(items)
-//     }
-//   })
-//   return () => (mounted = false)
-// }, [])
