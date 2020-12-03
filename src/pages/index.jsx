@@ -75,5 +75,5 @@ const Home = () => {
 export default Home
 
 // TODO:
-// Get next random breed if no info is returned.
-// Click button to get next random breed.
+// Get next random breed if no info is returned. Because this API is trash.
+// UseEffect is called twice. But why???
