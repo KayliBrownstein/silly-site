@@ -46,15 +46,21 @@ const Home = () => {
     <>
       <Header />
       <Container>
-        <Row>
+        <Row className="my-3 text-center">
           <Col>
             <Button
               disabled={isSending}
               onClick={toggleButtonState}
               variant="primary"
+              mt={2}
+              size="lg"
             >
               Next Dog Breed
             </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <ProfileCard
               dogBreedData={dogBreedData}
               dogBreedImage={dogBreedImage}

@@ -9,6 +9,7 @@ const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
       // objectFit: "cover",
       // height: `${dogBreedImage.height}`,
       // width: `${dogBreedImage.width}`,
+      maxWidth: "500px",
     },
     col: {
       // background: "black",
@@ -17,42 +18,57 @@ const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
       width: "auto",
       height: "auto",
     },
+    cardTitle: {
+      textAlign: "center",
+    },
   }
 
   console.log(`ProfileCard ${dogBreedImage}`)
 
   return (
-    <Card className="text-center my-4" border="dark" style={styles.card}>
-      <Row>
-        <Col style={styles.col}>
-          <Card.Img src={dogBreedImage.url} style={styles.cardImage} />
+    <Card className="" style={styles.card}>
+      <Row className="justify-content-md-center">
+        <Col>
+          <Card.Img
+            src={dogBreedImage.url}
+            style={styles.cardImage}
+            // variant="bottom"
+            // textAlign="center"
+          />
         </Col>
         <Col>
           {dogBreedData && (
             <Card.Body>
-              <Card.Title>{dogBreedData.name}</Card.Title>
-              <Card.Text>
-                <dt>Lifespan:</dt>
-                <dd>{dogBreedData.life_span}</dd>
-                <dt>Bred For:</dt>
-                <dd>{dogBreedData.bred_for}</dd>
-                <dt>Breed Group:</dt>
-                <dd>{dogBreedData.breed_group}</dd>
-                <dt>Temperament:</dt>
-                <dd>{dogBreedData.temperament}</dd>
-                <dt>Origin:</dt>
-                <dd>{dogBreedData.country_code}</dd>
-                <dt>Weight:</dt>
-                <dd>
-                  Imperial: {dogBreedData.weight.imperial}, Metric:{" "}
-                  {dogBreedData.weight.metric}
-                </dd>
-                <dt>Height:</dt>
-                <dd>
-                  Imperial: {dogBreedData.height.imperial}, Metric{" "}
-                  {dogBreedData.height.metric}
-                </dd>
+              <Card.Title style={styles.cardTitle}>
+                {dogBreedData.name}
+              </Card.Title>
+              {dogBreedData.life_span && <Card.Header>Lifespan</Card.Header>}
+              <Card.Text styles={styles.cardParagraphs}>
+                {dogBreedData.life_span}
               </Card.Text>
+              {dogBreedData.bred_for && <Card.Header>Bred for</Card.Header>}
+              <Card.Text>{dogBreedData.bred_for}</Card.Text>
+              {dogBreedData.breed_group && (
+                <Card.Header>Breed Group</Card.Header>
+              )}
+              <Card.Text>{dogBreedData.breed_group}</Card.Text>
+              {dogBreedData.temperament && (
+                <Card.Header>Temperament</Card.Header>
+              )}
+              <Card.Text>{dogBreedData.temperament}</Card.Text>
+              {dogBreedData.country_code && <Card.Header>Origin</Card.Header>}
+              <Card.Text>{dogBreedData.country_code}</Card.Text>
+              {(dogBreedData.weight.imperial || dogBreedData.weight.metric) && (
+                <Card.Header>Weight</Card.Header>
+              )}
+              <Card.Text>Imperial: {dogBreedData.weight.imperial}</Card.Text>
+              <Card.Text>Metric: {dogBreedData.weight.metric}</Card.Text>
+
+              {(dogBreedData.height.imperial || dogBreedData.height.metric) && (
+                <Card.Header>Height</Card.Header>
+              )}
+              <Card.Text>Imperial: {dogBreedData.height.imperial}</Card.Text>
+              <Card.Text>Metric: {dogBreedData.height.metric}</Card.Text>
             </Card.Body>
           )}
         </Col>
