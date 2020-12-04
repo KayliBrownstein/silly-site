@@ -7,18 +7,22 @@ const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
   const styles = {
     cardImage: {
       // objectFit: "cover",
-      height: `${dogBreedImage.height}`,
-      width: `${dogBreedImage.width}`,
+      // height: `${dogBreedImage.height}`,
+      // width: `${dogBreedImage.width}`,
     },
     col: {
-      background: "black",
+      // background: "black",
+    },
+    card: {
+      width: "auto",
+      height: "auto",
     },
   }
 
   console.log(`ProfileCard ${dogBreedImage}`)
 
   return (
-    <Card className="text-center my-4" border="dark">
+    <Card className="text-center my-4" border="dark" style={styles.card}>
       <Row>
         <Col style={styles.col}>
           <Card.Img src={dogBreedImage.url} style={styles.cardImage} />

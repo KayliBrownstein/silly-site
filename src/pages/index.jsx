@@ -19,34 +19,28 @@ const Home = () => {
     return Math.floor(Math.random() * 264 + 1)
   }
 
-  const sendRequest = () => {
-    // don't send again while we are sending
-    if (isSending) return
-    // update state
+  const toggleButtonState = () => {
     setIsSending(true)
-    // send the actual request
-    // await API.sendRequest()
-    // once the request is sent, update state again
-    // setIsSending(false)
+    getDogBreedData(getRandomDogBreedId()).then(response => {
+      if (!response[0]) {
+        console.log("No response from API")
+        return toggleButtonState()
+      } else {
+        setDogBreedImage({
+          url: response[0].url,
+          height: response[0].height,
+          width: response[0].width,
+        })
+        setDogBreedData(response[0].breeds[0])
+        setIsSending(false)
+      }
+    })
   }
-  // , [isSending]) // update the callback if the state changes
 
   useEffect(() => {
     console.log("useEffect called")
-
-    getDogBreedData(getRandomDogBreedId()).then(response => {
-      // console.log(getRandomDogBreedId())
-      // console.log(response[0])
-      setDogBreedImage({
-        url: response[0].url,
-        height: response[0].height,
-        width: response[0].width,
-      })
-      // console.log(dogBreedImage)
-      setDogBreedData(response[0].breeds[0])
-      setIsSending(false)
-    })
-  }, [isSending])
+    toggleButtonState()
+  }, [])
 
   return (
     <>
@@ -54,17 +48,17 @@ const Home = () => {
       <Container>
         <Row>
           <Col>
-            <ProfileCard
-              dogBreedData={dogBreedData}
-              dogBreedImage={dogBreedImage}
-            />
             <Button
               disabled={isSending}
-              onClick={sendRequest}
+              onClick={toggleButtonState}
               variant="primary"
             >
               Next Dog Breed
             </Button>
+            <ProfileCard
+              dogBreedData={dogBreedData}
+              dogBreedImage={dogBreedImage}
+            />
           </Col>
         </Row>
       </Container>
@@ -75,5 +69,4 @@ const Home = () => {
 export default Home
 
 // TODO:
-// Get next random breed if no info is returned. Because this API is trash.
 // UseEffect is called twice. But why???
