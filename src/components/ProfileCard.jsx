@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card"
 import { Col, Row } from "react-bootstrap"
 import Button from "react-bootstrap/Button"
 import { useState } from "react"
-import UserInputForm from "./UserInputForm"
+import Guess from "./Guess"
 
 const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
   const styles = {
@@ -15,7 +15,6 @@ const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
     },
     col: {
       textAlign: "center",
-      // background: "black",
     },
     card: {
       width: "auto",
@@ -46,7 +45,7 @@ const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
                 {showDogBreed ? (
                   dogBreedData.name
                 ) : (
-                  <UserInputForm dogBreed={dogBreedData.name} />
+                  <Guess dogBreed={dogBreedData.name} />
                 )}
               </Card.Title>
               <Button onClick={toggleShowDogBreed} size="sm">
