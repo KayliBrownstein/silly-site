@@ -75,4 +75,4 @@ const Home = () => {
 export default Home
 
 // TODO:
-// UseEffect is called twice. But why???
+// There's a weird lag for images after clicking Next
