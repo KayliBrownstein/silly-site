@@ -6,14 +6,16 @@ import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState } from "react"
 import getDogBreedData from "../utils/getDogBreedData"
 
 const Home = () => {
-  let [dogBreed, setDogBreed] = useState("Affenpinscher")
+  // let [dogBreed, setDogBreed] = useState("Affenpinscher")
   let [dogBreedData, setDogBreedData] = useState(null)
   let [dogBreedImage, setDogBreedImage] = useState({})
   const [isSending, setIsSending] = useState(false)
+  // const [showDogBreed, setShowDogBreed] = useState(false)
+  // const [dogBreedButtonText, setDogBreedButtonText] = useState("")
 
   const getRandomDogBreedId = () => {
     return Math.floor(Math.random() * 264 + 1)
@@ -36,6 +38,10 @@ const Home = () => {
       }
     })
   }
+
+  // const toggleShowDogBreed = () => {
+  //   setShowDogBreed(!showDogBreed)
+  // }
 
   useEffect(() => {
     console.log("useEffect called")
@@ -61,9 +67,11 @@ const Home = () => {
         </Row>
         <Row>
           <Col>
+            {/* <Button onClick={toggleShowDogBreed}>Show / Hide Dog Breed</Button> */}
             <ProfileCard
               dogBreedData={dogBreedData}
               dogBreedImage={dogBreedImage}
+              // showDogBreed={showDogBreed}
             />
           </Col>
         </Row>

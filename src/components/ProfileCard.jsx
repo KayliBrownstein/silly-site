@@ -1,7 +1,9 @@
 import React from "react"
 import Card from "react-bootstrap/Card"
-import Button from "react-bootstrap/Button"
 import { Col, Row } from "react-bootstrap"
+import Button from "react-bootstrap/Button"
+import { useState } from "react"
+import UserInputForm from "./UserInputForm"
 
 const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
   const styles = {
@@ -25,7 +27,11 @@ const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
     },
   }
 
-  console.log(`ProfileCard ${dogBreedImage}`)
+  const [showDogBreed, setShowDogBreed] = useState(false)
+
+  const toggleShowDogBreed = () => {
+    setShowDogBreed(!showDogBreed)
+  }
 
   return (
     <Card style={styles.card}>
@@ -37,8 +43,15 @@ const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
           {dogBreedData && (
             <Card.Body className="p-3">
               <Card.Title style={styles.cardTitle}>
-                {dogBreedData.name}
+                {showDogBreed ? (
+                  dogBreedData.name
+                ) : (
+                  <UserInputForm dogBreed={dogBreedData.name} />
+                )}
               </Card.Title>
+              <Button onClick={toggleShowDogBreed} size="sm">
+                Show / Hide Dog Breed
+              </Button>
               {dogBreedData.life_span && (
                 <>
                   <Card.Header>Lifespan</Card.Header>
@@ -107,3 +120,4 @@ const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
 export default ProfileCard
 
 // TODO: Make these dynamic so I don't need to create an entry for all of these fields?
+// Show/hide button text - dont show both.
