@@ -2,19 +2,23 @@ import React from "react"
 import Card from "react-bootstrap/Card"
 import { Col, Row } from "react-bootstrap"
 import Button from "react-bootstrap/Button"
-import { useState } from "react"
+// import { useState } from "react"
 import Guess from "./Guess"
 
-const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
+const ProfileCard = ({
+  dogBreedData,
+  dogBreedImage,
+  toggleShowDogBreed,
+  showDogBreed,
+  userGuessed,
+  setUserGuessed,
+}) => {
   const styles = {
     cardImage: {
-      // objectFit: "cover",
-      // height: `${dogBreedImage.height}`,
-      // width: `${dogBreedImage.width}`,
       maxWidth: "300px",
     },
     col: {
-      textAlign: "center",
+      // textAlign: "center",
     },
     card: {
       width: "auto",
@@ -26,17 +30,15 @@ const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
     },
   }
 
-  const [showDogBreed, setShowDogBreed] = useState(false)
-
-  const toggleShowDogBreed = () => {
-    setShowDogBreed(!showDogBreed)
-  }
-
   return (
     <Card style={styles.card}>
-      <Row className="justify-content-md-center">
+      <Row>
         <Col style={styles.col}>
-          <Card.Img src={dogBreedImage.url} style={styles.cardImage} />
+          <Card.Img
+            className="my-3 pt-3"
+            src={dogBreedImage.url}
+            style={styles.cardImage}
+          />
         </Col>
         <Col>
           {dogBreedData && (
@@ -45,11 +47,15 @@ const ProfileCard = ({ dogBreedData, dogBreedImage }) => {
                 {showDogBreed ? (
                   dogBreedData.name
                 ) : (
-                  <Guess dogBreed={dogBreedData.name} />
+                  <Guess
+                    dogBreed={dogBreedData.name}
+                    userGuessed={userGuessed}
+                    setUserGuessed={setUserGuessed}
+                  />
                 )}
               </Card.Title>
               <Button onClick={toggleShowDogBreed} size="sm">
-                Show / Hide Dog Breed
+                {showDogBreed ? "Hide Dog Breed" : "Show Dog Breed"}
               </Button>
               {dogBreedData.life_span && (
                 <>

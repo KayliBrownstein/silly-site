@@ -9,7 +9,7 @@ export const NavMenu = () => (
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-        <Nav.Link href="#">Home - Show me a dog</Nav.Link>
+        <Nav.Link href="#">Guess that breed</Nav.Link>
         <Nav.Link href="#link">Dog Breed Search</Nav.Link>
         <Nav.Link href="#link">Dog Shelter Search</Nav.Link>
         <NavDropdown title="Dropdown" id="basic-nav-dropdown">

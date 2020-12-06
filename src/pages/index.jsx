@@ -10,23 +10,22 @@ import { useEffect, useState } from "react"
 import getDogBreedData from "../utils/getDogBreedData"
 
 const Home = () => {
-  // let [dogBreed, setDogBreed] = useState("Affenpinscher")
   let [dogBreedData, setDogBreedData] = useState(null)
   let [dogBreedImage, setDogBreedImage] = useState({})
   const [isSending, setIsSending] = useState(false)
-  // const [showDogBreed, setShowDogBreed] = useState(false)
-  // const [dogBreedButtonText, setDogBreedButtonText] = useState("")
+  const [showDogBreed, setShowDogBreed] = useState(false)
+  const [userGuessed, setUserGuessed] = useState(false)
 
   const getRandomDogBreedId = () => {
     return Math.floor(Math.random() * 264 + 1)
   }
 
-  const toggleButtonState = () => {
+  const getNextDogBreed = () => {
     setIsSending(true)
     getDogBreedData(getRandomDogBreedId()).then(response => {
       if (!response[0]) {
         console.log("No response from API")
-        return toggleButtonState()
+        return getNextDogBreed()
       } else {
         setDogBreedImage({
           url: response[0].url,
@@ -35,30 +34,32 @@ const Home = () => {
         })
         setDogBreedData(response[0].breeds[0])
         setIsSending(false)
+        setShowDogBreed(false)
+        setUserGuessed(false)
       }
     })
   }
 
-  // const toggleShowDogBreed = () => {
-  //   setShowDogBreed(!showDogBreed)
-  // }
+  const toggleShowDogBreed = () => {
+    setShowDogBreed(!showDogBreed)
+    setUserGuessed(false)
+  }
 
   useEffect(() => {
     console.log("useEffect called")
-    toggleButtonState()
+    getNextDogBreed()
   }, [])
 
   return (
     <>
       <Header />
       <Container>
-        <Row className="my-3 text-center">
+        <Row className="my-3">
           <Col>
             <Button
               disabled={isSending}
-              onClick={toggleButtonState}
+              onClick={getNextDogBreed}
               variant="primary"
-              mt={2}
               size="lg"
             >
               Next Dog Breed
@@ -67,11 +68,13 @@ const Home = () => {
         </Row>
         <Row>
           <Col>
-            {/* <Button onClick={toggleShowDogBreed}>Show / Hide Dog Breed</Button> */}
             <ProfileCard
               dogBreedData={dogBreedData}
               dogBreedImage={dogBreedImage}
-              // showDogBreed={showDogBreed}
+              toggleShowDogBreed={toggleShowDogBreed}
+              showDogBreed={showDogBreed}
+              userGuessed={userGuessed}
+              setUserGuessed={setUserGuessed}
             />
           </Col>
         </Row>
