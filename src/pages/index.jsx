@@ -54,7 +54,7 @@ const Home = () => {
     <>
       <Header />
       <Container>
-        <Row className="my-3">
+        <Row className="my-3 text-right">
           <Col>
             <Button
               disabled={isSending}
@@ -87,3 +87,4 @@ export default Home
 
 // TODO:
 // There's a weird lag for images after clicking Next
+// Make it responsive so stacked on mobile.
