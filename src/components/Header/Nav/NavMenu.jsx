@@ -6,7 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown"
 export const NavMenu = () => (
   <Navbar bg="light" expand="lg">
     <Navbar.Brand href="#">Dog Breed Silly Site</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
         <Nav.Link href="#">Guess that breed</Nav.Link>
@@ -20,7 +20,7 @@ export const NavMenu = () => (
           <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
         </NavDropdown>
       </Nav>
-    </Navbar.Collapse>
+    </Navbar.Collapse> */}
   </Navbar>
 )
 

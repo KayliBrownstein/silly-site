@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { useEffect, useState } from "react"
 import getDogBreedData from "../utils/getDogBreedData"
+import "./index.css"
 
 const Home = () => {
   let [dogBreedData, setDogBreedData] = useState(null)
@@ -54,12 +55,17 @@ const Home = () => {
     <>
       <Header />
       <Container>
-        <Row className="my-3 text-right">
+        <Row className="my-4 text-center">
+          <Col>
+            <h1>Guess the dog breed!</h1>
+          </Col>
+        </Row>
+        <Row className="my-4 text-center">
           <Col>
             <Button
               disabled={isSending}
               onClick={getNextDogBreed}
-              variant="primary"
+              variant="dark"
               size="lg"
             >
               Next Dog Breed

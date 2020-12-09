@@ -15,11 +15,10 @@ const ProfileCard = ({
 }) => {
   const styles = {
     cardImage: {
-      maxWidth: "300px",
+      maxWidth: "550px",
+      maxHeight: "500px",
     },
     card: {
-      width: "auto",
-      height: "auto",
       border: "none",
     },
     cardTitle: {
@@ -31,18 +30,33 @@ const ProfileCard = ({
     <Card style={styles.card}>
       <Row>
         <Col style={styles.col}>
-          <Card.Img
-            className="my-3 pt-3"
-            src={dogBreedImage.url}
-            style={styles.cardImage}
-          />
+          <Row>
+            <Button
+              variant="dark"
+              onClick={toggleShowDogBreed}
+              size="lg"
+              className="my-3"
+            >
+              {showDogBreed ? "Hide Dog Breed" : "Show Dog Breed"}
+            </Button>
+          </Row>
+          <Row>
+            <Card.Img
+              width={dogBreedImage.width}
+              height={dogBreedImage.height}
+              className="my-1"
+              src={dogBreedImage.url}
+              style={styles.cardImage}
+              alt={showDogBreed ? dogBreedData.name : "Dog breed to guess"}
+            />
+          </Row>
         </Col>
         <Col>
           {dogBreedData && (
             <Card.Body className="p-3">
               <Card.Title style={styles.cardTitle}>
                 {showDogBreed ? (
-                  dogBreedData.name
+                  <h2>{dogBreedData.name}</h2>
                 ) : (
                   <Guess
                     dogBreed={dogBreedData.name}
@@ -51,14 +65,6 @@ const ProfileCard = ({
                   />
                 )}
               </Card.Title>
-              <Button
-                variant="dark"
-                onClick={toggleShowDogBreed}
-                size="sm"
-                className="my-3"
-              >
-                {showDogBreed ? "Hide Dog Breed" : "Show Dog Breed"}
-              </Button>
               <BreedField dogBreedData={dogBreedData} />
             </Card.Body>
           )}
