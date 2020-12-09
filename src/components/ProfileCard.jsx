@@ -15,11 +15,10 @@ const ProfileCard = ({
 }) => {
   const styles = {
     cardImage: {
-      maxWidth: "300px",
+      maxWidth: "550px",
+      maxHeight: "500px",
     },
     card: {
-      width: "auto",
-      height: "auto",
       border: "none",
     },
     cardTitle: {
@@ -35,7 +34,7 @@ const ProfileCard = ({
             <Button
               variant="dark"
               onClick={toggleShowDogBreed}
-              size="sm"
+              size="lg"
               className="my-3"
             >
               {showDogBreed ? "Hide Dog Breed" : "Show Dog Breed"}
@@ -43,6 +42,8 @@ const ProfileCard = ({
           </Row>
           <Row>
             <Card.Img
+              width={dogBreedImage.width}
+              height={dogBreedImage.height}
               className="my-1"
               src={dogBreedImage.url}
               style={styles.cardImage}
