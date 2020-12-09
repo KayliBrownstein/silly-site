@@ -18,7 +18,9 @@ const BreedField = ({ dogBreedData }) => {
   ]
 
   const displayBreedKey = breedKey => {
-    return breedKey.replace("_", " ").toUpperCase()
+    return (
+      breedKey.charAt(0).toUpperCase() + breedKey.slice(1).replace("_", " ")
+    )
   }
 
   return (
@@ -27,7 +29,7 @@ const BreedField = ({ dogBreedData }) => {
         <>
           {dogBreedData[key] ? (
             <>
-              <Card.Header>{displayBreedKey(key)}</Card.Header>
+              <Card.Header as="h3">{displayBreedKey(key)}</Card.Header>
               <Card.Text className="p-3">
                 {["height", "weight"].includes(key)
                   ? `Imperial: ${dogBreedData[key]["imperial"]}; Metric: ${dogBreedData[key]["metric"]}`

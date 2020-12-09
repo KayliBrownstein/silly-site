@@ -31,18 +31,31 @@ const ProfileCard = ({
     <Card style={styles.card}>
       <Row>
         <Col style={styles.col}>
-          <Card.Img
-            className="my-3 pt-3"
-            src={dogBreedImage.url}
-            style={styles.cardImage}
-          />
+          <Row>
+            <Button
+              variant="dark"
+              onClick={toggleShowDogBreed}
+              size="sm"
+              className="my-3"
+            >
+              {showDogBreed ? "Hide Dog Breed" : "Show Dog Breed"}
+            </Button>
+          </Row>
+          <Row>
+            <Card.Img
+              className="my-1"
+              src={dogBreedImage.url}
+              style={styles.cardImage}
+              alt={showDogBreed ? dogBreedData.name : "Dog breed to guess"}
+            />
+          </Row>
         </Col>
         <Col>
           {dogBreedData && (
             <Card.Body className="p-3">
               <Card.Title style={styles.cardTitle}>
                 {showDogBreed ? (
-                  dogBreedData.name
+                  <h2>{dogBreedData.name}</h2>
                 ) : (
                   <Guess
                     dogBreed={dogBreedData.name}
@@ -51,14 +64,6 @@ const ProfileCard = ({
                   />
                 )}
               </Card.Title>
-              <Button
-                variant="dark"
-                onClick={toggleShowDogBreed}
-                size="sm"
-                className="my-3"
-              >
-                {showDogBreed ? "Hide Dog Breed" : "Show Dog Breed"}
-              </Button>
               <BreedField dogBreedData={dogBreedData} />
             </Card.Body>
           )}

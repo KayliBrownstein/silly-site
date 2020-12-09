@@ -32,11 +32,9 @@ const Guess = ({ dogBreed, userGuessed, setUserGuessed }) => {
         <Result userCorrect={userCorrect} handleRetry={handleRetry} />
       ) : (
         <>
-          <div className="my-3" style={styles.form}>
-            Guess this dog breed!
-          </div>
           <Form inline onSubmit={handleSubmit}>
             <Form.Group controlId="formDogBreed">
+              <Form.Label srOnly>Dog breed</Form.Label>
               <Form.Control
                 required
                 style={styles.inputField}
@@ -44,7 +42,9 @@ const Guess = ({ dogBreed, userGuessed, setUserGuessed }) => {
                 placeholder="Enter dog breed"
               />
             </Form.Group>
-            <Button type="submit">Submit</Button>
+            <Button variant="dark" type="submit">
+              Submit
+            </Button>
           </Form>
         </>
       )}
