@@ -54,21 +54,26 @@ const Home = () => {
   const styles = {
     button: {
       borderRadius: "0",
-      // width: "100%",
+      width: "100%",
+    },
+    bannerText: {
+      backgroundColor: "bisque",
     },
   }
 
   return (
     <>
       <Header />
-      <Container xs={12} md={10}>
-        <Row className="bannerText my-4 text-center">
+      <Container fluid style={styles.bannerText}>
+        <Row className="mb-4 text-center">
           <Col>
-            <h1>Guess the dog breed!</h1>
+            <h1 className="m-4">Guess the dog breed!</h1>
           </Col>
         </Row>
-        <Row className="my-4 text-center">
-          <Col>
+      </Container>
+      <Container xs={12} md={10}>
+        <Row className="text-center">
+          <Col sm={12} md={6}>
             <Button
               disabled={isSending}
               onClick={getNextDogBreed}

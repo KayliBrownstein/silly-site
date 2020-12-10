@@ -18,14 +18,23 @@ const BreedField = ({ dogBreedData }) => {
     )
   }
 
+  const styles = {
+    cardHeader: {
+      backgroundColor: "#aec6cf",
+      fontWeight: 400,
+    },
+  }
+
   return (
     <>
       {dogBreedDataKeys.map(key => (
         <>
           {dogBreedData[key] ? (
             <>
-              <Card.Header as="h3">{displayBreedKey(key)}</Card.Header>
-              <Card.Text className="p-3">
+              <Card.Header style={styles.cardHeader} as="h3">
+                {displayBreedKey(key)}
+              </Card.Header>
+              <Card.Text className="py-3 px-3">
                 {["height", "weight"].includes(key)
                   ? `Imperial: ${dogBreedData[key]["imperial"]}; Metric: ${dogBreedData[key]["metric"]}`
                   : dogBreedData[key]}

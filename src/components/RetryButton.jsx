@@ -15,7 +15,7 @@ const RetryButton = ({ handleRetry }) => {
       className="my-3"
       onClick={handleRetry}
     >
-      Try Again!
+      Try Again
     </Button>
   )
 }
