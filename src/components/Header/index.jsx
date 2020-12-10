@@ -9,6 +9,11 @@ const Header = () => (
       <title>Gatsby Silly Site: Guess the dog breed</title>
       <meta name="description" content="Gatsby silly site to guess dog breed" />
       <html lang="en" />
+      <link
+        href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
+        rel="stylesheet"
+        rel="preload"
+      />
     </Helmet>
     <NavMenu />
   </>
