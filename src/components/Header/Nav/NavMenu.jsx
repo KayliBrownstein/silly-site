@@ -5,7 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown"
 
 export const NavMenu = () => (
   <Navbar bg="light" expand="lg">
-    <Navbar.Brand href="#">Dog Breed Silly Site</Navbar.Brand>
+    <Navbar.Brand>Dog Breed Silly Site</Navbar.Brand>
     {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">

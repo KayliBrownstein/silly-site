@@ -3,16 +3,33 @@ import { useState } from "react"
 import Result from "./Result"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
+import { Col } from "react-bootstrap"
 
 const Guess = ({ dogBreed, userGuessed, setUserGuessed }) => {
   const [userCorrect, setUserCorrect] = useState(false)
 
   const styles = {
     inputField: {
-      width: "28vw",
+      // width: "100%",
+      borderRadius: "0",
     },
     form: {
-      textAlign: "left",
+      // textAlign: "left",
+    },
+    formGroup: {
+      marginTop: "12px",
+      marginBottom: "12px",
+    },
+    button: {
+      borderRadius: "0",
+      width: "100%",
+    },
+    formCol: {
+      padding: 0,
+    },
+    formRow: {
+      marginRight: 0,
+      marginLeft: 0,
     },
   }
 
@@ -32,19 +49,31 @@ const Guess = ({ dogBreed, userGuessed, setUserGuessed }) => {
         <Result userCorrect={userCorrect} handleRetry={handleRetry} />
       ) : (
         <>
-          <Form inline onSubmit={handleSubmit}>
-            <Form.Group controlId="formDogBreed">
-              <Form.Label srOnly>Dog breed</Form.Label>
-              <Form.Control
-                required
-                style={styles.inputField}
-                type="text"
-                placeholder="Enter dog breed"
-              />
-            </Form.Group>
-            <Button variant="dark" type="submit">
-              Submit
-            </Button>
+          <Form onSubmit={handleSubmit}>
+            <Form.Row className="align-items-center" style={styles.formRow}>
+              <Col xs={12} md={8} style={styles.formCol}>
+                <Form.Group style={styles.formGroup} controlId="formDogBreed">
+                  <Form.Label srOnly>Dog breed</Form.Label>
+                  <Form.Control
+                    required
+                    style={styles.inputField}
+                    type="text"
+                    placeholder="Enter dog breed"
+                  />
+                </Form.Group>
+              </Col>
+              <Col style={styles.formCol}>
+                <Button
+                  xs={12}
+                  md={2}
+                  style={styles.button}
+                  variant="dark"
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </Col>
+            </Form.Row>
           </Form>
         </>
       )}
