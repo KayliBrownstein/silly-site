@@ -16,7 +16,7 @@ const ProfileCard = ({
   const styles = {
     cardImage: {
       maxWidth: "550px",
-      // maxHeight: "500px",
+      height: "auto",
     },
     card: {
       border: "none",
