@@ -55,7 +55,7 @@ const Home = () => {
     <>
       <Header />
       <Container>
-        <Row className="my-4 text-center">
+        <Row className="bannerText my-4 text-center">
           <Col>
             <h1>Guess the dog breed!</h1>
           </Col>
@@ -92,5 +92,7 @@ const Home = () => {
 export default Home
 
 // TODO:
-// There's a weird lag for images after clicking Next
+// There's a weird lag for images after clicking Next.
 // Make it responsive so stacked on mobile.
+// Work on security rating.
+// Align submit button with input field.

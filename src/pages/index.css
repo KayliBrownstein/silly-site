@@ -1,4 +1,16 @@
 * {
-  font-family: "Roboto", sans-serif;
-  font-display: swap;
+  font-family: Helvetica;
+}
+
+.bannerText {
+  background-color: bisque;
+}
+
+.bannerText h1 {
+  margin: 24px;
+}
+
+.card-header {
+  background-color: #aec6cf;
+  font-weight: 500;
 }

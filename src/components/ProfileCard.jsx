@@ -16,7 +16,7 @@ const ProfileCard = ({
   const styles = {
     cardImage: {
       maxWidth: "550px",
-      maxHeight: "500px",
+      // maxHeight: "500px",
     },
     card: {
       border: "none",
@@ -42,8 +42,8 @@ const ProfileCard = ({
           </Row>
           <Row>
             <Card.Img
-              width={dogBreedImage.width}
-              height={dogBreedImage.height}
+              // width={dogBreedImage.width}
+              // height={dogBreedImage.height}
               className="my-1"
               src={dogBreedImage.url}
               style={styles.cardImage}
