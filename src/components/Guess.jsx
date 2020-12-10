@@ -10,11 +10,7 @@ const Guess = ({ dogBreed, userGuessed, setUserGuessed }) => {
 
   const styles = {
     inputField: {
-      // width: "100%",
       borderRadius: "0",
-    },
-    form: {
-      // textAlign: "left",
     },
     formGroup: {
       marginTop: "12px",
