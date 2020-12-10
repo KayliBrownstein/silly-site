@@ -9,13 +9,11 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        fonts: [
-          `roboto`,
-          `source sans pro\:300,400,400i,700`, // you can also specify font weights and styles
-        ],
-        display: "swap",
+        google: {
+          families: ["Droid Sans", "Droid Serif", "Roboto"],
+        },
       },
     },
   ],
