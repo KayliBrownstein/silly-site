@@ -2,11 +2,17 @@ import React from "react"
 import Button from "react-bootstrap/Button"
 
 const RetryButton = ({ handleRetry }) => {
+  const styles = {
+    button: {
+      borderRadius: "0",
+      width: "100%",
+    },
+  }
   return (
     <Button
-      variant="outline-primary"
-      className="m-3"
-      size="sm"
+      style={styles.button}
+      variant="dark"
+      className="my-3"
       onClick={handleRetry}
     >
       Try Again!
