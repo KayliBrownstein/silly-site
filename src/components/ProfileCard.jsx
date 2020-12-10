@@ -34,7 +34,7 @@ const ProfileCard = ({
   return (
     <Card style={styles.card}>
       <Row>
-        <Col sm={12} md={6} style={styles.col}>
+        <Col sm={12} md={6}>
           <Row>
             <Button
               variant="dark"

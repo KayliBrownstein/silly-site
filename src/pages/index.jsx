@@ -101,5 +101,4 @@ export default Home
 
 // TODO:
 // There's a weird lag for images after clicking Next.
-// Make it responsive so stacked on mobile.
 // Work on security rating.
