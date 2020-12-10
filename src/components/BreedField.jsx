@@ -1,12 +1,7 @@
 import React from "react"
-// import { useState } from "react"
-// import Result from "./Result"
 import Card from "react-bootstrap/Card"
-// import Button from "react-bootstrap/Button"
 
 const BreedField = ({ dogBreedData }) => {
-  //   debugger
-  //   //   console.log(typeOf(dogBreedData))
   const dogBreedDataKeys = [
     "life_span",
     "bred_for",

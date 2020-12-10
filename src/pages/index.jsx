@@ -51,10 +51,17 @@ const Home = () => {
     getNextDogBreed()
   }, [])
 
+  const styles = {
+    button: {
+      borderRadius: "0",
+      // width: "100%",
+    },
+  }
+
   return (
     <>
       <Header />
-      <Container>
+      <Container xs={12} md={10}>
         <Row className="bannerText my-4 text-center">
           <Col>
             <h1>Guess the dog breed!</h1>
@@ -67,6 +74,7 @@ const Home = () => {
               onClick={getNextDogBreed}
               variant="dark"
               size="lg"
+              style={styles.button}
             >
               Next Dog Breed
             </Button>
@@ -95,4 +103,3 @@ export default Home
 // There's a weird lag for images after clicking Next.
 // Make it responsive so stacked on mobile.
 // Work on security rating.
-// Align submit button with input field.

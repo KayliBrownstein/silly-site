@@ -15,7 +15,8 @@ const ProfileCard = ({
 }) => {
   const styles = {
     cardImage: {
-      maxWidth: "550px",
+      maxWidth: "100%",
+      padding: "0.5rem",
       height: "auto",
     },
     card: {
@@ -24,18 +25,23 @@ const ProfileCard = ({
     cardTitle: {
       textAlign: "center",
     },
+    button: {
+      borderRadius: "0",
+      width: "100%",
+    },
   }
 
   return (
     <Card style={styles.card}>
       <Row>
-        <Col style={styles.col}>
+        <Col sm={12} md={6} style={styles.col}>
           <Row>
             <Button
               variant="dark"
               onClick={toggleShowDogBreed}
               size="lg"
-              className="my-3"
+              className="my-4"
+              style={styles.button}
             >
               {showDogBreed ? "Hide Dog Breed" : "Show Dog Breed"}
             </Button>
@@ -51,7 +57,7 @@ const ProfileCard = ({
             />
           </Row>
         </Col>
-        <Col>
+        <Col sm={12} md={6}>
           {dogBreedData && (
             <Card.Body className="p-3">
               <Card.Title style={styles.cardTitle}>
