@@ -21,7 +21,7 @@ const BreedField = ({ dogBreedData }) => {
   const styles = {
     cardHeader: {
       backgroundColor: "#aec6cf",
-      fontWeight: 400,
+      fontWeight: 300,
     },
   }
 

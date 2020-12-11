@@ -29,12 +29,26 @@ const ProfileCard = ({
       borderRadius: "0",
       width: "100%",
     },
+    dogBreedName: {
+      border: "dotted #aec6cf",
+    },
   }
 
   return (
     <Card style={styles.card}>
       <Row>
         <Col sm={12} md={6}>
+          {showDogBreed ? (
+            <h2 style={styles.dogBreedName} className="text-center mt-3">
+              {dogBreedData.name}
+            </h2>
+          ) : (
+            <Guess
+              dogBreed={dogBreedData.name}
+              userGuessed={userGuessed}
+              setUserGuessed={setUserGuessed}
+            />
+          )}
           <Row>
             <Col>
               <Button
@@ -62,22 +76,12 @@ const ProfileCard = ({
           </Row>
         </Col>
         <Col sm={12} md={6}>
-          {dogBreedData && (
-            <Card.Body className="py-3 px-0">
-              <Card.Title style={styles.cardTitle}>
-                {showDogBreed ? (
-                  <h2>{dogBreedData.name}</h2>
-                ) : (
-                  <Guess
-                    dogBreed={dogBreedData.name}
-                    userGuessed={userGuessed}
-                    setUserGuessed={setUserGuessed}
-                  />
-                )}
-              </Card.Title>
-              <BreedField dogBreedData={dogBreedData} />
-            </Card.Body>
-          )}
+          <Card.Body className="py-3 px-0">
+            <Card.Title style={styles.cardTitle} as="h2">
+              Breed Profile
+            </Card.Title>
+            <BreedField dogBreedData={dogBreedData} />
+          </Card.Body>
         </Col>
       </Row>
     </Card>

@@ -58,6 +58,8 @@ const Home = () => {
     },
     bannerText: {
       backgroundColor: "bisque",
+      fontFamily: "Amatic SC",
+      fontWeight: 700,
     },
   }
 
@@ -67,13 +69,15 @@ const Home = () => {
       <Container fluid style={styles.bannerText}>
         <Row className="mb-4 text-center">
           <Col>
-            <h1 className="m-4">Guess the dog breed!</h1>
+            <h1 style={styles.bannerText} className="m-4">
+              Guess the dog breed!
+            </h1>
           </Col>
         </Row>
       </Container>
       <Container xs={12} md={10}>
         <Row className="text-center">
-          <Col sm={12} md={6}>
+          <Col sm={12} md={6} className="ml-auto">
             <Button
               disabled={isSending}
               onClick={getNextDogBreed}
@@ -87,14 +91,16 @@ const Home = () => {
         </Row>
         <Row>
           <Col>
-            <ProfileCard
-              dogBreedData={dogBreedData}
-              dogBreedImage={dogBreedImage}
-              toggleShowDogBreed={toggleShowDogBreed}
-              showDogBreed={showDogBreed}
-              userGuessed={userGuessed}
-              setUserGuessed={setUserGuessed}
-            />
+            {dogBreedData && (
+              <ProfileCard
+                dogBreedData={dogBreedData}
+                dogBreedImage={dogBreedImage}
+                toggleShowDogBreed={toggleShowDogBreed}
+                showDogBreed={showDogBreed}
+                userGuessed={userGuessed}
+                setUserGuessed={setUserGuessed}
+              />
+            )}
           </Col>
         </Row>
       </Container>
